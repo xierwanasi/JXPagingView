@@ -218,7 +218,8 @@
     if (self.pinSectionHeaderVerticalOffset != 0) {
         if (!(self.currentScrollingListView != nil && self.currentScrollingListView.contentOffset.y > [self minContentOffsetYInListScrollView:self.currentScrollingListView])) {
             //没有处于滚动某一个listView的状态
-            if (scrollView.contentOffset.y >= self.pinSectionHeaderVerticalOffset) {
+            CGFloat offset = labs(self.pinSectionHeaderVerticalOffset);
+            if (scrollView.contentOffset.y >= offset) {
                 //固定的位置就是contentInset.top
                 [self adjustMainScrollViewToTargetContentInsetIfNeeded:UIEdgeInsetsMake(self.pinSectionHeaderVerticalOffset, 0, 0, 0)];
             }else {
